@@ -1,0 +1,186 @@
+%%% Preamble with settings %%%
+\usepackage[english, russian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\onehalfspacing
+
+\usepackage{geometry}
+\geometry{
+	a4paper,
+%	total={170mm,257mm},
+%	left=30mm,
+%	top=30mm,
+	right=20mm,
+	bottom=25mm
+}
+
+\usepackage[compact]{titlesec}
+\titleformat{\chapter}
+{\normalfont\LARGE\bfseries}{\thechapter}{1em}{}
+\titlespacing*{\chapter}{0pt}{0pt}{40pt}
+
+\let\up\textsuperscript
+
+%% ToDo notes %%
+\usepackage{todonotes}
+
+%% Bibliography %%%
+\usepackage[square,numbers]{natbib}
+\bibliographystyle{unsrt}
+
+\usepackage[nottoc]{tocbibind} % Includes "Bibliography" in contents
+
+\usepackage{fontspec} % XeTeX
+\usepackage{xunicode} % Unicode для XeTeX
+\usepackage{xltxtra}  % Верхние и нижние индексы
+\usepackage{indentfirst} % Indented line after header
+
+%% Listings %%%
+\usepackage{listings} % Listings format settings
+\usepackage{xcolor}
+\usepackage{color, colortbl}
+
+\definecolor{codegreen}{rgb}{0, 0.6, 0}
+\definecolor{codegray}{rgb}{0.5, 0.5, 0.5}
+\definecolor{codeblue}{rgb}{0.2, 0.2, 0.6}
+\definecolor{backgray}{rgb}{0.94,0.94,0.94}
+\definecolor{nogray}{rgb}{0.97, 0.97, 0.97}
+\definecolor{codepurple}{rgb}{0.58, 0, 0.82}
+
+\lstdefinestyle{code-style-java}{
+%	belowcaptionskip=1\baselineskip,			% skip 1 line after listing caption
+	xleftmargin=\parindent,
+	identifierstyle=\color{blue},
+	language=Java,								% the language of the code
+	backgroundcolor=\color{backgray}, 			% choose the background color; you must add \usepackage{color} or \usepackage{xcolor}; should come as last argument  
+	commentstyle=\color{codegray},				% comment style
+	keywordstyle=\color{codeblue}\bfseries,		% keyword style
+	numberstyle=\tiny\color{codegray},			% the style that is used for the line-numbers
+	stringstyle=\color{codepurple},				% string literal style
+	basicstyle=\small\ttfamily\footnotesize,	% Размер и тип шрифта, the size of the fonts that are used for the code
+	breakatwhitespace=false,         			% sets if automatic breaks should only happen at whitespace
+	breaklines=true,        					% Перенос строк
+	captionpos=lt,                    			% sets the caption-position to bottom               
+	keepspaces=true,    						% keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)             
+	numbers=left,                    			% where to put the line-numbers; possible values are (none, left, right)
+	numbersep=5pt,           					% how far the line-numbers are from the code       
+	stepnumber=1,                    			% the step between two line-numbers. If it's 1, each line will be numbered
+	showspaces=false,           % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'   
+	showstringspaces=false,		% underline spaces within strings only		
+	showtabs=false,             % show tabs within strings adding particular underscores     
+	tabsize=2,					% Размер табуляции, sets default tabsize to 2 spaces
+%	frame=single,               % Рамка, adds a frame around the code
+%	frame=TB,
+	literate={--}{{-{}-}}2,     % Корректно отображать двойной дефис
+	literate={---}{{-{}-{}-}}3,  % Корректно отображать тройной дефис
+	escapeinside={(*}{*)}
+}
+
+\lstdefinestyle{code-style-sql}{
+	language=SQL,
+	frame=ltrb,
+	framesep=5pt,
+	basicstyle=\normalsize,
+	keywordstyle=\ttfamily\color{OliveGreen},
+	identifierstyle=\ttfamily\color{CadetBlue}\bfseries, 
+	commentstyle=\color{Brown},
+	stringstyle=\ttfamily,
+	showstringspaces=true,
+	escapeinside={<--}{-->}
+}
+
+%\lstset{style=mystyle-pseudo}
+
+% Шрифты, xelatex
+\defaultfontfeatures{Ligatures=TeX}
+\setmainfont{Times New Roman}
+\setmonofont{FreeMono}
+
+%% Graphics & Illustrations %%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx}			% Images and additions inserting (to load graphics)
+\usepackage{wrapfig}			% integration of graphics with wraping text
+%\usepackage{subfig}				% integration of multiple objects within a float
+\usepackage{pdfpages}			% PDF inserting, binds a graphic or page (.pdf or .jpg) in the document
+\usepackage{float}
+\usepackage[section]{placeins}
+
+% Format of labels for figures and tables
+\usepackage{chngcntr}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\usepackage[tableposition=top]{caption}
+\usepackage{subcaption}
+
+% Reset the counter for figures, tables in each Chapter
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+
+% Format of labels for theorems and definitions
+\usepackage{amssymb,amsfonts,amsmath,amsthm,bm} % Maths
+\numberwithin{equation}{section} % Formules numbering chapter.number
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+
+\usepackage[yyyymmdd,hhmmss]{datetime}
+\usepackage[ruled,vlined]{algorithm2e} 		% algochapter
+
+\renewcommand*{\lstlistlistingname}{List of Listings}
+
+
+%%%% Joining Algorithms and Listings into one %%%
+%\makeatletter
+%\AtBeginDocument{%
+%	\renewcommand\lstlistlistingname{Algorithms and Listings}
+%	\let\c@algocf\c@lstlisting
+%}
+%\renewcommand{\algocf@list}{lol}%
+%\renewcommand*\l@algocf{\@dottedtocline{1}{1.5em}{2.3em}}
+%\makeatother
+%%%%%%%%
+
+%% HyperRef %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% http://www.tug.org/applications/hyperref/manual.html
+\usepackage[breaklinks]{hyperref}
+\def\UrlBreaks{\do-\do/\do.}
+\hypersetup{
+    colorlinks, urlcolor={black}, % All links are black and clickable
+    linkcolor={black}, citecolor={black}, filecolor={black},
+    pdfauthor={Aigul Mardanova},
+    pdftitle={Identification of Trajectory Anomalies in Uncertain Spatiotemporal Data}
+}
+
+\sloppy             % Избавляемся от переполнений
+\hyphenpenalty=1000 % Частота переносов
+\clubpenalty=10000  % Запрещаем разрыв страницы после первой строки абзаца
+\widowpenalty=10000 % Запрещаем разрыв страницы после последней строки абзаца
+
+% Списки
+\usepackage{enumitem}
+\setlist[enumerate,itemize]{leftmargin=12.7mm} % Отступы в списках
+
+% Appendix
+\usepackage[toc,page]{appendix}
+
+% Page number is bottom-right
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\rightmark}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+
+\usepackage{xassoccnt}
+\NewTotalDocumentCounter{totalfigures}
+\NewTotalDocumentCounter{totaltables}
+\NewTotalDocumentCounter{appendixchapters}
+\DeclareAssociatedCounters{figure}{totalfigures}
+\DeclareAssociatedCounters{table}{totaltables}
+
+%\renewcommand{\chaptermark}[1]{ \markboth{#1}{} }
+%\renewcommand{\sectionmark}[1]{ \markright{#1} }
