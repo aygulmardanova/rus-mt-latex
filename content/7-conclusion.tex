@@ -1,22 +1,18 @@
 \chapter{ЗАКЛЮЧЕНИЕ}
 \label{ch:ЗАКЛЮЧЕНИЕ}
 
-In this work an approach for identification of trajectory anomalies in uncertain ST data was proposed and discussed. To perform an evaluation and implement the approach, the framework was developed. The source code of the implemented framework is available on GitHub repository \cite{online:mt_anomalies}. For solving the task of outliers detection the clustering approach was used as a basis, specifically agglomerative hierarchical clustering algorithm. To calculate the similarity and dissimilarity between trajectories and clusters, the LCSS distance was chosen. However, as it was mentioned in previous chapters, LCSS distance calculation becomes infeasible for long trajectories. For that reason the approximation of input trajectories using polynomial regression was performed. According to the evaluation results, the best accuracy of approximation is achieved while using the 3\up{th} and 4\up{th}-degree polynomial functions jointly. Thereby, clustering was performed on a filtered set of approximated input trajectories using key points for each of them. The accuracy of the performed clustering was evaluated using a DI index and is equal to $0.95$ value, which can be considered as a $good$ result.
-\todo{Update after obtaining final results}
+В этой работе был предложен и проанализирован подход для идентификации траекторных аномалий в неопределенных пространственно-временных данных. Для оценки и реализации подхода была разработан фреймворк, решающий поставленную задачу. Исходный код реализации доступен в репозитории GitHub \cite{online:mt_anomalies}. Для решения задачи обнаружения аномалий в качестве основы использовался кластерный подход, а именно алгоритм агломеративной иерархической кластеризации. Для вычисления меры сходства и различия между траекториями и кластерами была выбрана и реализована метрика расстояния LCSS. Однако, как было упомянуто в предыдущих главах, вычисление расстояния LCSS по классическому алгоритму становится невозможным для длинных траекторий. По этой причине была выполнена аппроксимация входных траекторий с использованием полиномиальной регрессии. Согласно результатам оценки, наилучшая точность аппроксимации достигается при совместном использовании полиномиальных функций $3$-ей и $4$-ой степеней. Таким образом, кластеризация была выполнена на отфильтрованном наборе приближенных входных траекторий с использованием отобранных ключевых точек для каждой из них. Точность выполненной кластеризации была оценена с использованием индекса DI и равна $0,95$, что говорит о качественном разделении на четкие различимые кластеры.
 
-(In this work following results were achieved:)
-
-As a result of this work following conclusions and deductions can be drawn:
+В результате данной работы можно сделать следущие выводы:
 \begin{itemize}
-	\item approximation of short trajectories with a non-constant speed requires higher-order polynomial functions for approximation
-	\item LCSS distance allows trajectories to be of different lengths, but becomes extremely computationally expensive and complex for trajectories with more that 11-12 trajectory points
-	\item approximation using a polynomial regression works well with the trajectory data, since it is known in advance that spatial coordinates of a trajectory are functionally dependent on the time (according to principles of physics, speed, acceleration, etc.)
+	\item аппроксимация коротких траекторий с непостоянной скоростью требует использования полиномиальных функций более высоких степеней,
+	\item несмотря на то что LCSS метрика расстояния позволяет траекториям быть разной длины, ее вычисление становится чрезвычайно трудоемким и времязатратным  для траекторий с более чем 11-12 точками траекторий,
+	\item аппроксимация траекторий с использованием полиномиальной регрессии дает точные результаты, поскольку заранее известно, что существует функционлаьная зависимость между пространственными координатами траектории и временным параметром (согласно принципам физики, скорости, ускорения и т.д.).
 	
 \end{itemize}
 
 \bigbreak
 
 \subsubsection{Дальнейшее развитие}
-Последующие исследования
 
-The implemented algorithm is designed in an offline-learning manner, that means that models of normal trajectories are learned offline beforehand and are not updated with new upcoming data on an on-going basis. The future researches can include investigating an opportunity of updating normal trajectories database in order to make the framework more adaptable to actual traffic data.
+Предложенный подход и разработанный фреймворк спроектированы в манере обучения оффлайн что означает, что модели поведения нормальных и аномальных траекторий изучаются и запоминаются заранее и не обновлятся впоследствии. Последующие исследования могут включать изучение возможности обновления базы данных нормальных траекторий по мере поступления новых данных, чтобы сделать подход и сам фреймворк адаптирующимся к реальным актуальным данным транспортного трафика.
