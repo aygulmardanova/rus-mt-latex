@@ -36,49 +36,49 @@ Java Swing, так же как и Java AWT, является инструмен�
 
 Каждый перекресток представляет собой четырехстороннее пересечение дорог, оборудованное одной регистрирующей камерой. Примеры изображений с установленных видеокамер представлены на рис. \ref{fig:is_all}.
 
-%\begin{figure}[!htb]
-%	\centering
-%	\begin{subfigure}[!htb]{0.48\textwidth}
-%		\centering{}
-%		\includegraphics[width=\textwidth]{images/is-1.jpg}
-%		\caption{$1.txt$}
-%		\label{fig:is_1}
-%	\end{subfigure}
-%	\hfill
-%	\begin{subfigure}[!htb]{0.48\textwidth}
-%		\centering{}
-%		\includegraphics[width=\textwidth]{images/is-2.jpg}
-%		\caption{$3.txt$}
-%		\label{fig:is_2}
-%	\end{subfigure}
-%	\hfill
-%	\begin{subfigure}[!htb]{0.48\textwidth}
-%		\centering{}
-%		\includegraphics[width=\textwidth]{images/is-3.jpg}
-%		\caption{$4.txt$}
-%		\label{fig:is_3}
-%	\end{subfigure}
-%	\hfill
-%	\begin{subfigure}[!htb]{0.48\textwidth}
-%		\centering{}
-%		\includegraphics[width=\textwidth]{images/is-4.jpg}
-%		\caption{$4.txt$}
-%		\label{fig:is_4}
-%	\end{subfigure}
-%	\caption{Примеры изображений с видеокамер на перекрестках 1-4}
-%	\label{fig:is_all}
-%\end{figure}
+\begin{figure}[!htb]
+	\centering
+	\begin{subfigure}[!htb]{0.48\textwidth}
+		\centering{}
+		\includegraphics[width=\textwidth]{images/is-1.jpg}
+		\caption{$1.txt$}
+		\label{fig:is_1}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[!htb]{0.48\textwidth}
+		\centering{}
+		\includegraphics[width=\textwidth]{images/is-2.jpg}
+		\caption{$3.txt$}
+		\label{fig:is_2}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[!htb]{0.48\textwidth}
+		\centering{}
+		\includegraphics[width=\textwidth]{images/is-3.jpg}
+		\caption{$4.txt$}
+		\label{fig:is_3}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[!htb]{0.48\textwidth}
+		\centering{}
+		\includegraphics[width=\textwidth]{images/is-4.jpg}
+		\caption{$4.txt$}
+		\label{fig:is_4}
+	\end{subfigure}
+	\caption{Примеры изображений с видеокамер на перекрестках 1-4}
+	\label{fig:is_all}
+\end{figure}
 
 Файлы с входными данными содержат 624, 211, 231, 237 траекторий ТС для каждого из указанных перекрестков соответственно.
 
 Под аномальной траекторией подразумевается траектория движения ТС через перекресток, которая значительно отличается от большинства известных, нормальных траекторий. Например, в случае, когда на перекрестке запрещен поворот направо с крайней левой полосы движения, такое поведение будет неизвестно системе. В случае появления такой траектории она будет признана системой аномальной.
 
-%\begin{figure}[!htb]
-%	\centering{}
-%	\includegraphics[width=0.8\textwidth]{images/tr-p.png}
-%	\caption{Пример работы системы слежения на данных с первого перекрестка}
-%	\label{fig:tr_p}
-%\end{figure}
+\begin{figure}[!htb]
+	\centering{}
+	\includegraphics[width=0.8\textwidth]{images/tr-p.png}
+	\caption{Пример работы системы слежения на данных с первого перекрестка}
+	\label{fig:tr_p}
+\end{figure}
 
 \subsection{Структура файла входных данных}
 
@@ -98,24 +98,24 @@ Java Swing, так же как и Java AWT, является инструмен�
 
 Входные данные содержат траектории различной длины и с различным пройденным расстоянием. Однако из-за неточности и ошибок в системе слежения некоторые траектории выглядят неправдоподобно и не имеют смысла. Одна из возможных причин этого - пропавший отслеживаемый объект или потеря системой слежения местоположения объекта. В отличие от случая потерянного местоположения, когда пропущенное местоположение может быть найдено с использованием моделей аппроксимации и регрессии, потерянный объект отслеживания не может быть впоследствии исправлен. По этой причине, чтобы улучшить качество результатов, было решено отфильтровать входные траектории и игнорировать короткие траектории с малым пройденным расстоянием, где пройденное расстояние рассчитывается как евклидово расстояние между первой и последней точками траектории. Для фильтрации параметров использовались следующие значения: $minLength = 10\ (trajectory \ points)$, $minTotalDist = 80 \ (pixels)$. Результаты фильтрации с отображением удаленных и сохраненных траекторий показаны на рис. \ref{fig:traj_filter}.
 
-%\begin{figure}
-%	\centering
-%	\begin{subfigure}[b]{0.48\textwidth}
-%		\centering{}
-%		\includegraphics[width=\textwidth]{images/traj-filter-out.png}
-%		\caption{игнорируемые траектории}
-%		\label{fig:traj_filter_out}
-%	\end{subfigure}
-%	\hfill
-%	\begin{subfigure}[b]{0.48\textwidth}
-%		\centering{}
-%		\includegraphics[width=\textwidth]{images/traj-filter-keep.png}
-%		\caption{оставленные траектории}
-%		\label{fig:traj_filter_keep}
-%	\end{subfigure}
-%	\caption{Результаты фильтрации траекторий на примере данных с первого перекрестка}
-%	\label{fig:traj_filter}
-%\end{figure}
+\begin{figure}
+	\centering
+	\begin{subfigure}[b]{0.48\textwidth}
+		\centering{}
+		\includegraphics[width=\textwidth]{images/traj-filter-out.png}
+		\caption{игнорируемые траектории}
+		\label{fig:traj_filter_out}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.48\textwidth}
+		\centering{}
+		\includegraphics[width=\textwidth]{images/traj-filter-keep.png}
+		\caption{оставленные траектории}
+		\label{fig:traj_filter_keep}
+	\end{subfigure}
+	\caption{Результаты фильтрации траекторий на примере данных с первого перекрестка}
+	\label{fig:traj_filter}
+\end{figure}
 
 Как уже упоминалось ранее, текущая работа сфокусирована на задаче выявления двух типов нарушений: пространственных и пространственно-временных. Для выявления аномалий первой группы достаточно проанализировать пространственную информацию о траекториях. Обнаружение аномалий второй категории, которая формируется из траекторий ТС, движущихся с аномально низкой или высокой скоростью, требует учета временной информации вместе с пространственной. По этой причине средняя постоянная скорость $\upsilon$ рассчитывается для каждой из входных траекторий $T$ в конце этапа парсинга данных как (\ref{eq:avg_speed}):
 
@@ -173,59 +173,59 @@ Java Swing, так же как и Java AWT, является инструмен�
 
 Результаты аппроксимации полиномиальной регрессией и вычисления ключевых точек представлены на рисунке \ref{fig:regr-kp}. Точки траектории, относящиеся к исходным данным траектории, изображены с использованием красного цвета, тогда как синие точки траектории соответствуют точкам, полученным с использованием функций полиномиального приближения для тех же временных точек. Ключевые точки каждой траектории выделены жирными синими квадратными точками. Видно, что функция аппроксимации близка к исходной функции траектории, для некоторых траекторий приближение дает те же координаты, что и в исходных данных (для траекторий с полиномами аппроксимации, имеющими $R^2 \approx 1.0$). Также можно заметить, что ключевые точки точно придерживаются линии аппроксимации и правильно описывают траекторию, следовательно, они могут использоваться вместо исходных точек траектории для упрощения дальнейшего анализа траекторий.
 
-%\begin{figure}[!htb]
-%	\centering
-%	\begin{subfigure}[!htb]{0.68\textwidth}
-%		\centering{}
-%		\includegraphics[width=\textwidth]{images/regr_kp_full.png}
-%		\caption{множество всех исходных траекторий $2.txt$}
-%	\end{subfigure}
-%	\hfill
-%	\begin{subfigure}[!htb]{0.3\textwidth}
-%		\centering{}
-%		\includegraphics[width=\textwidth]{images/regr_kp_loop.png}
-%		\caption{траектория-петля $1.txt$}
-%	\end{subfigure}
-%	\hfill
-%	\begin{subfigure}[!htb]{0.3\textwidth}
-%		\centering{}
-%		\includegraphics[width=\textwidth]{images/regr_kp_turn.png}
-%		\caption{траектория с поворотом $1.txt$}
-%	\end{subfigure}
-%	\hfill
-%	\begin{subfigure}[!htb]{0.3\textwidth}
-%		\centering{}
-%		\includegraphics[width=\textwidth]{images/regr_kp_complex.png}
-%		\caption{траектория сложной формы $1.txt$}
-%	\end{subfigure}
-%	\hfill
-%	\begin{subfigure}[!htb]{0.3\textwidth}
-%		\centering{}
-%		\includegraphics[width=\textwidth]{images/regr_kp_curve_2.png}
-%		\caption{изогнутая траектория $2.txt$}
-%	\end{subfigure}
-%	\hfill
-%	\begin{subfigure}[!htb]{0.3\textwidth}
-%		\centering{}
-%		\includegraphics[width=\textwidth]{images/regr_kp_complex_3.png}
-%		\caption{траектория сложной формы $3.txt$}
-%	\end{subfigure}
-%	\hfill
-%	\begin{subfigure}[!htb]{0.3\textwidth}
-%		\centering{}
-%		\includegraphics[width=\textwidth]{images/regr_kp_curve_3.png}
-%		\caption{изогнутая траектория $3.txt$}
-%	\end{subfigure}
-%	\hfill
-%	\begin{subfigure}[!htb]{0.3\textwidth}
-%		\centering{}
-%		\includegraphics[width=\textwidth]{images/regr_kp_curve_4.png}
-%		\caption{траектория-поворот $4.txt$}
-%	\end{subfigure}
-%
-%	\caption{Результаты полиномиальной регрессии с обозначением ключевых точек}
-%	\label{fig:regr-kp}
-%\end{figure}
+\begin{figure}[!htb]
+	\centering
+	\begin{subfigure}[!htb]{0.68\textwidth}
+		\centering{}
+		\includegraphics[width=\textwidth]{images/regr_kp_full.png}
+		\caption{множество всех исходных траекторий $2.txt$}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[!htb]{0.3\textwidth}
+		\centering{}
+		\includegraphics[width=\textwidth]{images/regr_kp_loop.png}
+		\caption{траектория-петля $1.txt$}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[!htb]{0.3\textwidth}
+		\centering{}
+		\includegraphics[width=\textwidth]{images/regr_kp_turn.png}
+		\caption{траектория с поворотом $1.txt$}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[!htb]{0.3\textwidth}
+		\centering{}
+		\includegraphics[width=\textwidth]{images/regr_kp_complex.png}
+		\caption{траектория сложной формы $1.txt$}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[!htb]{0.3\textwidth}
+		\centering{}
+		\includegraphics[width=\textwidth]{images/regr_kp_curve_2.png}
+		\caption{изогнутая траектория $2.txt$}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[!htb]{0.3\textwidth}
+		\centering{}
+		\includegraphics[width=\textwidth]{images/regr_kp_complex_3.png}
+		\caption{траектория сложной формы $3.txt$}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[!htb]{0.3\textwidth}
+		\centering{}
+		\includegraphics[width=\textwidth]{images/regr_kp_curve_3.png}
+		\caption{изогнутая траектория $3.txt$}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[!htb]{0.3\textwidth}
+		\centering{}
+		\includegraphics[width=\textwidth]{images/regr_kp_curve_4.png}
+		\caption{траектория-поворот $4.txt$}
+	\end{subfigure}
+
+	\caption{Результаты полиномиальной регрессии с обозначением ключевых точек}
+	\label{fig:regr-kp}
+\end{figure}
 
 \section{Анализ траекторий}
 \subsection{Вычисление метрики схожести траекторий}
@@ -260,32 +260,32 @@ Java Swing, так же как и Java AWT, является инструмен�
 
 Наиболее репрезентативные результаты моделирования кластеров представлены на рис. \ref{fig:cm-res}. Все траектории, принадлежащие кластеру, изображены красным цветом, модели кластеров - выделены синим.
 
-%\begin{figure}[!htb]
-%	\centering
-%	\begin{subfigure}[!htb]{0.7\textwidth}
-%		\centering{}
-%		\includegraphics[width=\textwidth]{images/cm-1-from-8-0_95.png}
-%		\caption{кластер 1}
-%	\end{subfigure}
-%	\hfill
-%	\begin{subfigure}[!htb]{0.7\textwidth}
-%		\centering{}
-%		\includegraphics[width=\textwidth]{images/cm-3-from-8-0_95.png}
-%		\caption{кластер 3}
-%	\end{subfigure}
-%	\hfill
-%	\begin{subfigure}[!htb]{0.7\textwidth}
-%		\centering{}
-%		\includegraphics[width=\textwidth]{images/cm-4-from-8-0_95.png}
-%		\caption{кластер 4}
-%	\end{subfigure}
-%	\hfill
-%	\begin{subfigure}[!htb]{0.7\textwidth}
-%		\centering{}
-%		\includegraphics[width=\textwidth]{images/cm-7-from-8-0_95.png}
-%		\caption{кластер 7}
-%	\end{subfigure}
-%	
-%	\caption{Примеры моделирования кластеров для данных со второго перекрестка}
-%	\label{fig:cm-res}
-%\end{figure}
+\begin{figure}[!htb]
+	\centering
+	\begin{subfigure}[!htb]{0.7\textwidth}
+		\centering{}
+		\includegraphics[width=\textwidth]{images/cm-1-from-8-0_95.png}
+		\caption{кластер 1}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[!htb]{0.7\textwidth}
+		\centering{}
+		\includegraphics[width=\textwidth]{images/cm-3-from-8-0_95.png}
+		\caption{кластер 3}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[!htb]{0.7\textwidth}
+		\centering{}
+		\includegraphics[width=\textwidth]{images/cm-4-from-8-0_95.png}
+		\caption{кластер 4}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[!htb]{0.7\textwidth}
+		\centering{}
+		\includegraphics[width=\textwidth]{images/cm-7-from-8-0_95.png}
+		\caption{кластер 7}
+	\end{subfigure}
+	
+	\caption{Примеры моделирования кластеров для данных со второго перекрестка}
+	\label{fig:cm-res}
+\end{figure}

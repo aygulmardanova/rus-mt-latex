@@ -66,31 +66,31 @@
 
 Для упрощения повествования траектории будут классифицированы на две группы в зависимости от степени полиномов, использованных для аппроксимации: первая группа включает в себя траектории, аппроксимированные полиномиальными функциями $3$-ей степени, в то время как вторая группа состоит из траекторий, аппроксимируемых полиномами $4$-ой степени. Траектории обеих групп были проанализированы с точки зрения формы и средней скорости. На рис. \ref{fig:regr-pol-4} показана вторая группа траекторий, а в табл. \ref{table:speeds} указаны представлены минимальная, средняя и максимальная скорости траекторий для обеих групп.
 
-%\begin{figure}
-%	\centering
-%	\begin{subfigure}[b]{0.3\textwidth}
-%		\centering{}
-%		\includegraphics[width=\textwidth]{images/regr_1_pol_4.jpg}
-%		\caption{$1.txt$}
-%		\label{fig:regr-1-pol-4}
-%	\end{subfigure}
-%	\hfill
-%	\begin{subfigure}[b]{0.3\textwidth}
-%		\centering{}
-%		\includegraphics[width=\textwidth]{images/regr_3_pol_4.png}
-%		\caption{$3.txt$}
-%		\label{fig:regr-3-pol-4}
-%	\end{subfigure}
-%	\hfill
-%	\begin{subfigure}[b]{0.3\textwidth}
-%		\centering{}
-%		\includegraphics[width=\textwidth]{images/regr_4_pol_4.png}
-%		\caption{$4.txt$}
-%		\label{fig:regr-4-pol-4}
-%	\end{subfigure}
-%	\caption{Траектории, аппроксимированные полиномами $4$-ой степени}
-%	\label{fig:regr-pol-4}
-%\end{figure}
+\begin{figure}
+	\centering
+	\begin{subfigure}[b]{0.3\textwidth}
+		\centering{}
+		\includegraphics[width=\textwidth]{images/regr_1_pol_4.jpg}
+		\caption{$1.txt$}
+		\label{fig:regr-1-pol-4}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.3\textwidth}
+		\centering{}
+		\includegraphics[width=\textwidth]{images/regr_3_pol_4.png}
+		\caption{$3.txt$}
+		\label{fig:regr-3-pol-4}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.3\textwidth}
+		\centering{}
+		\includegraphics[width=\textwidth]{images/regr_4_pol_4.png}
+		\caption{$4.txt$}
+		\label{fig:regr-4-pol-4}
+	\end{subfigure}
+	\caption{Траектории, аппроксимированные полиномами $4$-ой степени}
+	\label{fig:regr-pol-4}
+\end{figure}
 
 \begin{table}[h!]
 	\caption{Сравнение минимальной, средней, максимальной скоростей ТС}
@@ -161,24 +161,24 @@
 
 Было проведено 2 эксперимента на одном и том же наборе данных ($2.txt$) с разным числом итоговых кластеров: 8 и 9. Согласно результатам экспериментов, объединение до 8 кластеров продемонстрировало более точное разбиение данных и более высокие значения DI. Результаты выполнения кластеризации на примере данных с первого перекрестка представлены на рис. \ref{fig:clust-res}, кластеры данных обозначены различными цветами. На рис. \ref{fig:9cl-di-94} видно, что возможно и желательно дальнейшее объединение кластеров, представленных желтым и зеленым цветами. Рис. \ref{fig:8cl-di-95} демонстрирует результат продолжения кластеризации (в данном случае объединения кластеров), в котором два указанных кластера объединены в один на основании малого значения расстояния между ними (высокой степени схожести).
 
-%\begin{figure}[!htb]
-%	\centering
-%	\begin{subfigure}[!htb]{0.8\textwidth}
-%		\centering{}
-%		\includegraphics[width=\textwidth]{images/9cl-di-94.png}
-%		\caption{9 итоговых кластеров, DI = 0.94}
-%		\label{fig:9cl-di-94}
-%	\end{subfigure}
-%	\hfill
-%	\begin{subfigure}[!htb]{0.8\textwidth}
-%		\centering{}
-%		\includegraphics[width=\textwidth]{images/8cl-di-95.png}
-%		\caption{8 итоговых кластеров, DI = 0.95}
-%		\label{fig:8cl-di-95}
-%	\end{subfigure}
-%	\caption{Результаты кластеризации на примере траекторий со второго перекрестка}
-%	\label{fig:clust-res}
-%\end{figure}
+\begin{figure}[!htb]
+	\centering
+	\begin{subfigure}[!htb]{0.8\textwidth}
+		\centering{}
+		\includegraphics[width=\textwidth]{images/9cl-di-94.png}
+		\caption{9 итоговых кластеров, DI = 0.94}
+		\label{fig:9cl-di-94}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[!htb]{0.8\textwidth}
+		\centering{}
+		\includegraphics[width=\textwidth]{images/8cl-di-95.png}
+		\caption{8 итоговых кластеров, DI = 0.95}
+		\label{fig:8cl-di-95}
+	\end{subfigure}
+	\caption{Результаты кластеризации на примере траекторий со второго перекрестка}
+	\label{fig:clust-res}
+\end{figure}
 
 Валидация полученных кластеров была проведена с использованием метрики DI, были получены следующие значения:
 \begin{itemize}
