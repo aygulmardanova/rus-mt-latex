@@ -11,16 +11,16 @@
 \geometry{
 	a4paper,
 %	total={170mm,257mm},
-%	left=30mm,
-%	top=30mm,
-	right=20mm,
+	left=25mm,
+	top=25mm,
+	right=15mm,
 	bottom=25mm
 }
 
 \usepackage[compact]{titlesec}
 \titleformat{\chapter}
 {\normalfont\LARGE\bfseries}{\thechapter}{1em}{}
-\titlespacing*{\chapter}{0pt}{0pt}{40pt}
+\titlespacing*{\chapter}{0pt}{-40pt}{30pt}
 
 \let\up\textsuperscript
 
@@ -110,6 +110,8 @@
 % Format of labels for figures and tables
 \usepackage{chngcntr}
 \usepackage{multirow}
+\usepackage{array, makecell}
+\usepackage{longtable}
 \usepackage{booktabs}
 \usepackage{array}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
@@ -169,10 +171,11 @@
 
 % Page number is bottom-right
 \usepackage{fancyhdr}
-\pagestyle{fancy}
+\pagestyle{fancyplain}
 \fancyhf{}
 \rhead{\rightmark}
-\fancyfoot[R]{\thepage}
+%\rfoot{\thepage}
+\fancyfoot[C]{\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
 
